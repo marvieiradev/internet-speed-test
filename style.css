@@ -28,6 +28,14 @@ body {
     box-shadow: 0 1.6em 2.4em rgba(40, 4, 67, 0.3);
 }
 
+.btn-reset {
+    opacity: 0;
+}
+
+#image {
+    margin-top: 20px;
+}
+
 p {
     font-weight: 400;
     color: 747497;

@@ -5,11 +5,13 @@ let bitSpeed = document.getElementById("bits");
 let kbSpeed = document.getElementById("kbs");
 let mbSpeed = document.getElementById("mbs");
 let info = document.getElementById("info");
+const btnReset = document.getElementById("btn-reset");
+const imageTest = document.getElementById("image");
 
 let totalBitSpeed = 0;
 let totalKbSpeed = 0;
 let totalMbSpeed = 0;
-let numTests = 16;
+let numTests = 6;
 let testCompleted = 0;
 
 //Obtem uma imagem aleatoria do unsplash.com
@@ -53,6 +55,9 @@ function calculateSpeed() {
         kbSpeed.innerHTML += `${averageSpeedInKbps}`;
         mbSpeed.innerHTML += `${averageSpeedInMbps}`;
         info.innerHTML = "Teste Completo!";
+        imageTest.src = "images/f_test.gif";
+        btnReset.style.opacity = 1;
+        btnReset.innerHTML = "Refazer Teste"
     } else {
         //Executa o próximo teste
         startTime = new Date().getTime();
@@ -60,11 +65,16 @@ function calculateSpeed() {
     }
 }
 
+btnReset.addEventListener("click", () => {
+    window.location.reload(true);
+})
+
 //Função parar iniciar o teste
 const init = async () => {
     info.innerHTML = "Testando...";
     startTime = new Date().getTime();
     image.src = imageApi;
+    imageTest.src = "images/test.gif";
 };
 
 //Executa o teste quando a janela é carregada
